@@ -1,0 +1,1 @@
+export const cstInstallWalletUrl = 'https://chrome.google.com/webstore/detail/petra-aptos-wallet/ejjladinnckdgjemekebdpeokbikhfci'
