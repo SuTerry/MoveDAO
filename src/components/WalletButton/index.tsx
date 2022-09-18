@@ -75,7 +75,7 @@ export const WalletButton = ({ text, ...props }: WalletButtonProps): JSX.Element
         }
       >
         <span>
-          <WalletButtonWrapper disabled text="安装钱包" />
+          <WalletButtonWrapper disabled text="安装钱包" {...props} />
         </span>
       </Tooltip>
     )
@@ -88,7 +88,7 @@ export const WalletButton = ({ text, ...props }: WalletButtonProps): JSX.Element
       {isInstalled && !isAccountSet && (
         <Tooltip title="使用钱包创建帐户">
           <span>
-            <WalletButtonWrapper disabled text="创建用户">
+            <WalletButtonWrapper disabled text="创建用户" {...props}>
               {!isWalletLatestVersion && <OldWalletVersionWarning />}
             </WalletButtonWrapper>
           </span>
@@ -97,6 +97,7 @@ export const WalletButton = ({ text, ...props }: WalletButtonProps): JSX.Element
 
       {isInstalled && isAccountSet && !isConnected && (
         <WalletButtonWrapper
+          {...props}
           onClick={() => dispatch(connectWallet())}
           text="连接钱包"
         >

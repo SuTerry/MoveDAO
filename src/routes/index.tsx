@@ -15,7 +15,10 @@ export const routerRules: Record<string, Rules> = {
   },
   '/list': {
     isConnected: true,
-  }
+  },
+  '/proposal': {
+    isConnected: true,
+  },
 }
 
 

@@ -5,6 +5,7 @@ import { lazyLoad } from '@utils/routes'
 
 const Home = lazy(() => import('@views/Home/index'))
 const List = lazy(() => import('@views/List/index'))
+const Proposal = lazy(() => import('@views/Proposal/index'))
 
 export const routes: RouteObject[] = [
   {
@@ -14,5 +15,9 @@ export const routes: RouteObject[] = [
   {
     path: '/list',
     element:lazyLoad(<List />),
+  },
+  {
+    path: '/proposal',
+    element:lazyLoad(<Proposal />),
   },
 ]

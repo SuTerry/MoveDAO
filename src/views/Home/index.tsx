@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { useNavigate } from 'react-router-dom'
+
 import { Link } from '@mui/material'
 
 import { WalletButton } from '@components/WalletButton'
@@ -7,6 +9,9 @@ import { WalletButton } from '@components/WalletButton'
 import './index.less'
 
 export default (): JSX.Element => {
+
+  const navigate = useNavigate()
+
   return (
     <div className='home'>
       <div className="home_banner">
@@ -20,13 +25,18 @@ export default (): JSX.Element => {
             height: 60
           }}
           text="发起提案"
+          onClick={() => navigate('/proposal')}
         />
       </div>
       <div className="home_link">
         <Link href="#">关于</Link>
         <Link href="#">文档</Link>
+        <Link className="move_dao" href="#">MoveDAO</Link>
         <Link href="#">Github</Link>
         <Link href="#">Blog</Link>
+      </div>
+      <div className="home_bottom">
+        <Link href="#">加入MoveDAO社区</Link>
       </div>
     </div>
   )
