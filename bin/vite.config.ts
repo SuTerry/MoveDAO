@@ -14,6 +14,6 @@ export default defineConfig({
   root: path.resolve(__dirname, '../src'),
   server: {
     open: true,
-    port: 9090,
+    port: 3000,
   },
 })

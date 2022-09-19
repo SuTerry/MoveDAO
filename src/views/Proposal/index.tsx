@@ -22,8 +22,8 @@ export default (): JSX.Element => {
 
   const {
     describe,
-    validateDescribeInput,
-    renderDescribeTextField
+    validateDescribeEditor,
+    renderDescribeEditor
   } = useDescribeInput()
 
   const {
@@ -36,7 +36,7 @@ export default (): JSX.Element => {
 
   const handleSubmit = async () => {
     const validTitle = await validateTitleInput()
-    const validDescribe = await validateDescribeInput()
+    const validDescribe = await validateDescribeEditor()
     const validDate = await validateDatePicker()
 
 
@@ -80,7 +80,7 @@ export default (): JSX.Element => {
             {renderTitleTextField()}
           </div>
           <div className="p_f_c_description">
-            {renderDescribeTextField()}
+            {renderDescribeEditor()}
           </div>
           <div className='p_f_c_date'>
             {renderDatePicker()}
