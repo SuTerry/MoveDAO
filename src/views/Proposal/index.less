@@ -26,13 +26,39 @@
       >.p_f_c_description,
       >.p_f_c_date {
         margin-bottom: 30px;
+        position: relative;
+        >.p_f_c_label {
+          font-size: 22px;
+          font-weight: 400;
+          margin-bottom: 10px;
+          > sup {
+            color: #d32f2f;
+          }
+        }
+        > .p_f_c_l_right {
+          position: absolute;
+          top: 0;
+          left: 314px;
+        }
+        > .rc-md-editor {
+          &:hover {
+            border-color: #333;
+          }
+        }
+        > .rc-md-editor-error {
+          border-color: #d32f2f !important;
+        }
       }
-      > .p_f_c_date {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        > .p_f_c_d_box {
-          margin: 0 20px;
+
+      >.p_f_c_date {
+        >.p_f_c_d_data {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          >.p_f_c_d_box {
+            margin: 0 20px;
+          }
         }
       }
     }

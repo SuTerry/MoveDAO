@@ -48,27 +48,32 @@ const useDatePicker = (): useDatePickerReturn => {
   const renderDatePicker = (): JSX.Element => {
     return (
       <>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DesktopDatePicker
-            label="开始投票日期"
-            inputFormat="MM/DD/YYYY"
-            value={startDate}
-            onChange={handleStartDateChange}
-            renderInput={params => <TextField {...params} required error={startDateValid} />}
-            maxDate={endDate || undefined}
-          />
-        </LocalizationProvider>
-        <div className="p_f_c_d_box">至</div>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DesktopDatePicker
-            label="结束投票日期"
-            inputFormat="MM/DD/YYYY"
-            value={endDate}
-            onChange={handleEndDateChange}
-            renderInput={params => <TextField {...params} required error={endDateValid} />}
-            minDate={startDate || undefined}
-          />
-        </LocalizationProvider>
+        <h6 className='p_f_c_label'>开始投票日期<sup>*</sup></h6>
+        <h6 className='p_f_c_label p_f_c_l_right'>结束投票日期<sup>*</sup></h6>
+        
+        <div className="p_f_c_d_data">
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DesktopDatePicker
+              label="开始投票日期"
+              inputFormat="MM/DD/YYYY"
+              value={startDate}
+              onChange={handleStartDateChange}
+              renderInput={params => <TextField {...params} required error={startDateValid} />}
+              maxDate={endDate || undefined}
+            />
+          </LocalizationProvider>
+          <div className="p_f_c_d_box">至</div>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DesktopDatePicker
+              label="结束投票日期"
+              inputFormat="MM/DD/YYYY"
+              value={endDate}
+              onChange={handleEndDateChange}
+              renderInput={params => <TextField {...params} required error={endDateValid} />}
+              minDate={startDate || undefined}
+            />
+          </LocalizationProvider>
+        </div>
       </>
     )
   }

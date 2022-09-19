@@ -10,8 +10,8 @@ specifiers:
   '@mui/icons-material': ^5.10.3
   '@mui/material': ^5.10.4
   '@mui/x-date-pickers': ^5.0.2
-  '@mui/x-date-pickers-pro': ^5.0.2
   '@reduxjs/toolkit': ^1.8.5
+  '@types/markdown-it': ^12.2.3
   '@types/react': ^18.0.18
   '@types/react-dom': ^18.0.6
   '@types/react-router-dom': ^5.3.3
@@ -34,6 +34,7 @@ specifiers:
   husky: ^6.0.0
   less: ^4.1.1
   less-loader: ^8.1.0
+  markdown-it: ^13.0.1
   mini-css-extract-plugin: ^1.4.1
   pinst: ^2.1.6
   postcss: ^8.4.16
@@ -41,6 +42,7 @@ specifiers:
   postcss-preset-env: ^6.7.0
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-markdown-editor-lite: ^1.3.3
   react-redux: ^8.0.2
   react-router-dom: ^6.3.0
   style-loader: ^2.0.0
@@ -60,12 +62,13 @@ dependencies:
   '@mui/icons-material': registry.npmmirror.com/@mui/icons-material/5.10.3_5evnxlqsqnxmrwqqtdxt2buelq
   '@mui/material': registry.npmmirror.com/@mui/material/5.10.5_af5ln35zuaotaffazii6n6bke4
   '@mui/x-date-pickers': registry.npmmirror.com/@mui/x-date-pickers/5.0.2_kdjtz7ezycko3mafufui6ah5la
-  '@mui/x-date-pickers-pro': registry.npmmirror.com/@mui/x-date-pickers-pro/5.0.2_kdjtz7ezycko3mafufui6ah5la
   '@reduxjs/toolkit': registry.npmmirror.com/@reduxjs/toolkit/1.8.5_kkwg4cbsojnjnupd3btipussee
   aptos: registry.npmmirror.com/aptos/1.3.13
   dayjs: registry.npmmirror.com/dayjs/1.11.5
+  markdown-it: registry.npmmirror.com/markdown-it/13.0.1
   react: registry.npmmirror.com/react/18.2.0
   react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
+  react-markdown-editor-lite: registry.npmmirror.com/react-markdown-editor-lite/1.3.3_react@18.2.0
   react-redux: registry.npmmirror.com/react-redux/8.0.2_6hrpdt74nuubt2lijsfizev3cu
   react-router-dom: registry.npmmirror.com/react-router-dom/6.4.0_biqbaboplfbrettd7655fr4n2y
 
@@ -74,6 +77,7 @@ devDependencies:
   '@babel/preset-env': registry.npmmirror.com/@babel/preset-env/7.19.1_@babel+core@7.19.1
   '@babel/preset-react': registry.npmmirror.com/@babel/preset-react/7.18.6_@babel+core@7.19.1
   '@babel/preset-typescript': registry.npmmirror.com/@babel/preset-typescript/7.18.6_@babel+core@7.19.1
+  '@types/markdown-it': registry.npmmirror.com/@types/markdown-it/12.2.3
   '@types/react': registry.npmmirror.com/@types/react/18.0.20
   '@types/react-dom': registry.npmmirror.com/@types/react-dom/18.0.6
   '@types/react-router-dom': registry.npmmirror.com/@types/react-router-dom/5.3.3
@@ -2214,52 +2218,6 @@ packages:
       react-is: registry.npmmirror.com/react-is/18.2.0
     dev: false
 
-  registry.npmmirror.com/@mui/x-date-pickers-pro/5.0.2_kdjtz7ezycko3mafufui6ah5la:
-    resolution: {integrity: sha512-z2P8Yt/KsiTt90OA6gCK5APZ/A7PIZFehdonQKu5gXg8IHO8sn96I5BlhJoGSAasv9Lbp+h/v382icYENzyArg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@mui/x-date-pickers-pro/-/x-date-pickers-pro-5.0.2.tgz}
-    id: registry.npmmirror.com/@mui/x-date-pickers-pro/5.0.2
-    name: '@mui/x-date-pickers-pro'
-    version: 5.0.2
-    engines: {node: '>=12.0.0'}
-    peerDependencies:
-      '@mui/material': ^5.4.1
-      '@mui/system': ^5.4.1
-      date-fns: ^2.25.0
-      dayjs: ^1.10.7
-      luxon: ^1.28.0 || ^2.0.0 || ^3.0.0
-      moment: ^2.29.1
-      react: ^17.0.2 || ^18.0.0
-      react-dom: ^17.0.2 || ^18.0.0
-    peerDependenciesMeta:
-      date-fns:
-        optional: true
-      dayjs:
-        optional: true
-      luxon:
-        optional: true
-      moment:
-        optional: true
-    dependencies:
-      '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.19.0
-      '@date-io/date-fns': registry.npmmirror.com/@date-io/date-fns/2.15.0
-      '@date-io/dayjs': registry.npmmirror.com/@date-io/dayjs/2.15.0_dayjs@1.11.5
-      '@date-io/luxon': registry.npmmirror.com/@date-io/luxon/2.15.0
-      '@date-io/moment': registry.npmmirror.com/@date-io/moment/2.15.0
-      '@mui/material': registry.npmmirror.com/@mui/material/5.10.5_af5ln35zuaotaffazii6n6bke4
-      '@mui/utils': registry.npmmirror.com/@mui/utils/5.10.3_react@18.2.0
-      '@mui/x-date-pickers': registry.npmmirror.com/@mui/x-date-pickers/5.0.2_kdjtz7ezycko3mafufui6ah5la
-      '@mui/x-license-pro': registry.npmmirror.com/@mui/x-license-pro/5.17.0_react@18.2.0
-      clsx: registry.npmmirror.com/clsx/1.2.1
-      dayjs: registry.npmmirror.com/dayjs/1.11.5
-      prop-types: registry.npmmirror.com/prop-types/15.8.1
-      react: registry.npmmirror.com/react/18.2.0
-      react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
-      react-transition-group: registry.npmmirror.com/react-transition-group/4.4.5_biqbaboplfbrettd7655fr4n2y
-      rifm: registry.npmmirror.com/rifm/0.12.1_react@18.2.0
-    transitivePeerDependencies:
-      - '@emotion/react'
-      - '@emotion/styled'
-    dev: false
-
   registry.npmmirror.com/@mui/x-date-pickers/5.0.2_kdjtz7ezycko3mafufui6ah5la:
     resolution: {integrity: sha512-O2yxax8SnUX/M1lfU8+fcBEY+PmOnl0T4onmNrnFOT/7wiry7OYQDLa48nFpBYIK8ROjfi4sPzEKiFCrcwEwjw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@mui/x-date-pickers/-/x-date-pickers-5.0.2.tgz}
     id: registry.npmmirror.com/@mui/x-date-pickers/5.0.2
@@ -2309,20 +2267,6 @@ packages:
       react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
       react-transition-group: registry.npmmirror.com/react-transition-group/4.4.5_biqbaboplfbrettd7655fr4n2y
       rifm: registry.npmmirror.com/rifm/0.12.1_react@18.2.0
-    dev: false
-
-  registry.npmmirror.com/@mui/x-license-pro/5.17.0_react@18.2.0:
-    resolution: {integrity: sha512-SVn0E1sUSjuvT79mvfFnW1BtwfiQ+yg6hZpTNwS13a9hJLRJYDI+GiEypArsXRHHvs5XL5PVMmfmHs5voQF9Iw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@mui/x-license-pro/-/x-license-pro-5.17.0.tgz}
-    id: registry.npmmirror.com/@mui/x-license-pro/5.17.0
-    name: '@mui/x-license-pro'
-    version: 5.17.0
-    engines: {node: '>=12.0.0'}
-    peerDependencies:
-      react: ^17.0.2 || ^18.0.0
-    dependencies:
-      '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.19.0
-      '@mui/utils': registry.npmmirror.com/@mui/utils/5.10.3_react@18.2.0
-      react: registry.npmmirror.com/react/18.2.0
     dev: false
 
   registry.npmmirror.com/@noble/hashes/1.1.2:
@@ -2483,6 +2427,27 @@ packages:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/json-schema/-/json-schema-7.0.11.tgz}
     name: '@types/json-schema'
     version: 7.0.11
+    dev: true
+
+  registry.npmmirror.com/@types/linkify-it/3.0.2:
+    resolution: {integrity: sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/linkify-it/-/linkify-it-3.0.2.tgz}
+    name: '@types/linkify-it'
+    version: 3.0.2
+    dev: true
+
+  registry.npmmirror.com/@types/markdown-it/12.2.3:
+    resolution: {integrity: sha512-GKMHFfv3458yYy+v/N8gjufHO6MSZKCOXpZc5GXIWWy8uldwfmPn98vp81gZ5f9SVw8YYBctgfJ22a2d7AOMeQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/markdown-it/-/markdown-it-12.2.3.tgz}
+    name: '@types/markdown-it'
+    version: 12.2.3
+    dependencies:
+      '@types/linkify-it': registry.npmmirror.com/@types/linkify-it/3.0.2
+      '@types/mdurl': registry.npmmirror.com/@types/mdurl/1.0.2
+    dev: true
+
+  registry.npmmirror.com/@types/mdurl/1.0.2:
+    resolution: {integrity: sha512-eC4U9MlIcu2q0KQmXszyn5Akca/0jrQmwDRgpAMJai7qBWq4amIQhZyNau4VYGtCeALvW1/NtjzJJ567aZxfKA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/mdurl/-/mdurl-1.0.2.tgz}
+    name: '@types/mdurl'
+    version: 1.0.2
     dev: true
 
   registry.npmmirror.com/@types/minimatch/5.1.2:
@@ -3107,6 +3072,12 @@ packages:
       sprintf-js: registry.npmmirror.com/sprintf-js/1.0.3
     dev: true
 
+  registry.npmmirror.com/argparse/2.0.1:
+    resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/argparse/-/argparse-2.0.1.tgz}
+    name: argparse
+    version: 2.0.1
+    dev: false
+
   registry.npmmirror.com/arr-diff/4.0.0:
     resolution: {integrity: sha512-YVIQ82gZPGBebQV/a8dar4AitzCQs0jjXwMPZllpXMaGjXPYVUawSxQrRsjhjupyVxEvbHgUmIhKVlND+j02kA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/arr-diff/-/arr-diff-4.0.0.tgz}
     name: arr-diff
@@ -3621,6 +3592,12 @@ packages:
       isobject: registry.npmmirror.com/isobject/3.0.1
       static-extend: registry.npmmirror.com/static-extend/0.1.2
     dev: true
+
+  registry.npmmirror.com/classnames/2.3.2:
+    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/classnames/-/classnames-2.3.2.tgz}
+    name: classnames
+    version: 2.3.2
+    dev: false
 
   registry.npmmirror.com/clean-css/5.3.1:
     resolution: {integrity: sha512-lCr8OHhiWCTw4v8POJovCoh4T7I9U11yVsPjMWWnnMmp9ZowCxyad1Pathle/9HjaDp+fdQKjO9fQydE6RHTZg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/clean-css/-/clean-css-5.3.1.tgz}
@@ -4537,6 +4514,13 @@ packages:
     version: 2.2.0
     dev: true
 
+  registry.npmmirror.com/entities/3.0.1:
+    resolution: {integrity: sha512-WiyBqoomrwMdFG1e0kqvASYfnlb0lp8M5o5Fw2OFq1hNZxxcNk8Ik0Xm7LxzBhuidnZB/UtBqVCgUz3kBOP51Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/entities/-/entities-3.0.1.tgz}
+    name: entities
+    version: 3.0.1
+    engines: {node: '>=0.12'}
+    dev: false
+
   registry.npmmirror.com/envinfo/7.8.1:
     resolution: {integrity: sha512-/o+BXHmB7ocbHEAs6F2EnG0ogybVVUdkRunTT2glZU9XAaGmhqskrvKwqXuDfNjEO0LZKWdejEEpnq8aM0tOaw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/envinfo/-/envinfo-7.8.1.tgz}
     name: envinfo
@@ -5026,7 +5010,6 @@ packages:
     resolution: {integrity: sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/eventemitter3/-/eventemitter3-4.0.7.tgz}
     name: eventemitter3
     version: 4.0.7
-    dev: true
 
   registry.npmmirror.com/events/3.3.0:
     resolution: {integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/events/-/events-3.3.0.tgz}
@@ -6449,6 +6432,14 @@ packages:
     name: lines-and-columns
     version: 1.2.4
 
+  registry.npmmirror.com/linkify-it/4.0.1:
+    resolution: {integrity: sha512-C7bfi1UZmoj8+PQx22XyeXCuBlokoyWQL5pWSP+EI6nzRylyThouddufc2c1NDIcP9k5agmN9fLpA7VNJfIiqw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/linkify-it/-/linkify-it-4.0.1.tgz}
+    name: linkify-it
+    version: 4.0.1
+    dependencies:
+      uc.micro: registry.npmmirror.com/uc.micro/1.0.6
+    dev: false
+
   registry.npmmirror.com/loader-runner/4.3.0:
     resolution: {integrity: sha512-3R/1M+yS3j5ou80Me59j7F9IMs4PXs3VqRrm0TU3AbKPxlmpoY1TNscJV/oGJXo8qCatFGTfDbY6W6ipGOYXfg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/loader-runner/-/loader-runner-4.3.0.tgz}
     name: loader-runner
@@ -6601,11 +6592,30 @@ packages:
       object-visit: registry.npmmirror.com/object-visit/1.0.1
     dev: true
 
+  registry.npmmirror.com/markdown-it/13.0.1:
+    resolution: {integrity: sha512-lTlxriVoy2criHP0JKRhO2VDG9c2ypWCsT237eDiLqi09rmbKoUetyGHq2uOIRoRS//kfoJckS0eUzzkDR+k2Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/markdown-it/-/markdown-it-13.0.1.tgz}
+    name: markdown-it
+    version: 13.0.1
+    hasBin: true
+    dependencies:
+      argparse: registry.npmmirror.com/argparse/2.0.1
+      entities: registry.npmmirror.com/entities/3.0.1
+      linkify-it: registry.npmmirror.com/linkify-it/4.0.1
+      mdurl: registry.npmmirror.com/mdurl/1.0.1
+      uc.micro: registry.npmmirror.com/uc.micro/1.0.6
+    dev: false
+
   registry.npmmirror.com/mdn-data/2.0.14:
     resolution: {integrity: sha512-dn6wd0uw5GsdswPFfsgMp5NSB0/aDe6fK94YJV/AJDYXL6HVLWBsxeq7js7Ad+mU2K9LAlwpk6kN2D5mwCPVow==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mdn-data/-/mdn-data-2.0.14.tgz}
     name: mdn-data
     version: 2.0.14
     dev: true
+
+  registry.npmmirror.com/mdurl/1.0.1:
+    resolution: {integrity: sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mdurl/-/mdurl-1.0.1.tgz}
+    name: mdurl
+    version: 1.0.1
+    dev: false
 
   registry.npmmirror.com/media-typer/0.3.0:
     resolution: {integrity: sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/media-typer/-/media-typer-0.3.0.tgz}
@@ -8337,6 +8347,21 @@ packages:
     version: 18.2.0
     dev: false
 
+  registry.npmmirror.com/react-markdown-editor-lite/1.3.3_react@18.2.0:
+    resolution: {integrity: sha512-n4IIiicC0c4BqjxPoZ5+tnK9JokjwRNJFo1m22MnDzdA+p5irCvUM1Ms8TNc7kn07nrETrxKP6TuD2jP12cSoA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-markdown-editor-lite/-/react-markdown-editor-lite-1.3.3.tgz}
+    id: registry.npmmirror.com/react-markdown-editor-lite/1.3.3
+    name: react-markdown-editor-lite
+    version: 1.3.3
+    peerDependencies:
+      react: ^16.9.0 || ^17.0.0
+    dependencies:
+      '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.19.0
+      classnames: registry.npmmirror.com/classnames/2.3.2
+      eventemitter3: registry.npmmirror.com/eventemitter3/4.0.7
+      react: registry.npmmirror.com/react/18.2.0
+      uuid: registry.npmmirror.com/uuid/8.3.2
+    dev: false
+
   registry.npmmirror.com/react-redux/8.0.2_6hrpdt74nuubt2lijsfizev3cu:
     resolution: {integrity: sha512-nBwiscMw3NoP59NFCXFf02f8xdo+vSHT/uZ1ldDwF7XaTpzm+Phk97VT4urYBl5TYAPNVaFm12UHAEyzkpNzRA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-redux/-/react-redux-8.0.2.tgz}
     id: registry.npmmirror.com/react-redux/8.0.2
@@ -9662,6 +9687,12 @@ packages:
     hasBin: true
     dev: true
 
+  registry.npmmirror.com/uc.micro/1.0.6:
+    resolution: {integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/uc.micro/-/uc.micro-1.0.6.tgz}
+    name: uc.micro
+    version: 1.0.6
+    dev: false
+
   registry.npmmirror.com/unicode-canonical-property-names-ecmascript/2.0.0:
     resolution: {integrity: sha512-yY5PpDlfVIU5+y/BSCxAJRBIS1Zc2dDG3Ujq+sR0U+JjUevW2JhocOF+soROYDSaAezOzOKuyyixhD6mBknSmQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/unicode-canonical-property-names-ecmascript/-/unicode-canonical-property-names-ecmascript-2.0.0.tgz}
     name: unicode-canonical-property-names-ecmascript
@@ -9851,7 +9882,6 @@ packages:
     name: uuid
     version: 8.3.2
     hasBin: true
-    dev: true
 
   registry.npmmirror.com/v8-compile-cache/2.3.0:
     resolution: {integrity: sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz}

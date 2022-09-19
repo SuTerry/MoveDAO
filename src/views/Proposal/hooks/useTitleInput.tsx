@@ -25,17 +25,20 @@ const useTitleInput = (): useTitleInputReturn => {
 
   const renderTitleTextField = (): JSX.Element => {
     return (
-      <TextField
-        sx={{
-          width: '100%',
-        }}
-        value={title}
-        error={titleIsValid}
-        required
-        label="标题"
-        placeholder="请输入标题"
-        onChange={handleTitleChange}
-      />
+      <>
+        <h6 className='p_f_c_label'>标题<sup>*</sup></h6>
+        <TextField
+          sx={{
+            width: '100%',
+          }}
+          value={title}
+          error={titleIsValid}
+          required
+          label="标题"
+          placeholder="请输入标题"
+          onChange={handleTitleChange}
+        />
+      </>
     )
   }
 
