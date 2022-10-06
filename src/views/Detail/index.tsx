@@ -34,7 +34,7 @@ export default (): JSX.Element => {
 
   const [voteDisabled, setVoteDisabled] = useState(true)
 
-  const { accountAddress } = useAppSelector(state => state.wallet)
+  const { isAccountSet, accountAddress } = useAppSelector(state => state.wallet)
 
   const [total, setTotal] = useState(0)
 
@@ -47,7 +47,7 @@ export default (): JSX.Element => {
       const [prosposalRes, votesRes] = await Promise.all([proposalsApi.getProsposal(id, handle), proposalsApi.getTableVotes(id)])
       setProposals(prosposalRes)
       setVoteDetail(votesRes)
-      setVoteDisabled(!accountAddress || !!votesRes.find(vote => vote.proposer === accountAddress))
+      setVoteDisabled(!isAccountSet || !!votesRes.find(vote => vote.proposer === accountAddress))
     } catch (error) {
 
     }
