@@ -1,5 +1,5 @@
 import React from 'react'
-import { RouteObject } from 'react-router-dom'
+import { Navigate, RouteObject } from 'react-router-dom'
 import ExplorerRoutes from '@components/ExplorerRoutes'
 import Layout from '@components/Layout'
 
@@ -10,12 +10,6 @@ interface Rules {
 }
 
 export const routerRules: Record<string, Rules> = {
-  '/': {
-    isConnected: false,
-  },
-  '/list': {
-    isConnected: true,
-  },
   '/proposal': {
     isConnected: true,
   },
@@ -27,7 +21,11 @@ const router: RouteObject[] = [
     path: '/',
     element: <ExplorerRoutes children={<Layout />} />,
     children: [
-      ...common
+      ...common,
+      {
+        path: '*',
+        element: <Navigate to='/' />,
+      },
     ]
   }
 ]

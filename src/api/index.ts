@@ -1,0 +1,1 @@
+export { default as proposalsApi } from './proposals'

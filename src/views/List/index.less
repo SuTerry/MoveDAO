@@ -1,1 +1,26 @@
-.list {}
+.list {
+  position: relative;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+
+  >.list_back {
+    margin-bottom: 30px;
+    position: fixed;
+    top: 80px;
+    left: 20px;
+  }
+
+
+
+  >.list_container {
+    width: 800px;
+    margin: 0 auto;
+    padding: 100px;
+
+    >.list_container_title {
+      font-size: 34px;
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+  }
+}

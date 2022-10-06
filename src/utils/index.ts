@@ -22,3 +22,8 @@ export const truncateMiddle = (
     return str.slice(0, frontLen) + truncateStr + str.slice(strLen - backLen)
   }
 }
+
+export const percentage = (num: number, total: number, point = 1): string => {
+  if (num === 0 || total === 0) return '0'
+  return ((num / total) * 100).toFixed(point)
+}

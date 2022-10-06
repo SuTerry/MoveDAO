@@ -16,7 +16,9 @@ export default ({ children }: IProps): JSX.Element => {
 
   const { isAsyncFinish, isConnected } = useAppSelector(state => state.wallet)
 
-  const canAccess = routerRules[location.pathname]['isConnected']
+  const routerRule = routerRules[location.pathname]
+
+  const canAccess = routerRule ? routerRule['isConnected'] : false
 
   return (
     <>{

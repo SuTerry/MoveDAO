@@ -4,9 +4,13 @@ import { useNavigate } from 'react-router-dom'
 
 import { Button } from '@mui/material'
 
-import useTitleInput from './hooks/useTitleInput'
-import useDescribeInput from './hooks/useDescribeInput'
-import useDatePicker from './hooks/useDatePicker'
+import { proposalsApi } from '@api/index'
+
+import useTitleInput from './useTitleInput'
+import useDescribeInput from './useDescribeInput'
+import useDatePicker from './useDatePicker'
+
+import message from '@components/Message'
 
 import './index.less'
 
@@ -14,50 +18,25 @@ export default (): JSX.Element => {
 
   const navigate = useNavigate()
 
-  const {
-    title,
-    validateTitleInput,
-    renderTitleTextField
-  } = useTitleInput()
+  const { title, validateTitleInput, renderTitleTextField } = useTitleInput()
 
-  const {
-    describe,
-    validateDescribeEditor,
-    renderDescribeEditor
-  } = useDescribeInput()
+  const { describe, validateDescribeEditor, renderDescribeEditor } = useDescribeInput()
 
-  const {
-    startDate,
-    endDate,
-    validateDatePicker,
-    renderDatePicker
-  } = useDatePicker()
+  const { startDate, endDate, validateDatePicker, renderDatePicker } = useDatePicker()
 
 
   const handleSubmit = async () => {
+
     const validTitle = await validateTitleInput()
     const validDescribe = await validateDescribeEditor()
     const validDate = await validateDatePicker()
 
-
-
-    title
-    describe
-    startDate
-    endDate
-    validTitle
-    validDescribe
-    validDate
-
-    // console.log(title, 'title')
-    // console.log(describe, 'describe')
-    // console.log(startDate?.valueOf(), 'startDate')
-    // console.log(endDate?.valueOf(), 'endDate')
-
-    // console.log(validTitle, 'validTitle')
-    // console.log(validDescribe, 'validDescribe')
-    // console.log(validDate, 'validDate')
-
+    if (validTitle && validDescribe && validDate) {
+      proposalsApi.createProposal([title, describe, startDate!.valueOf(), endDate!.valueOf()]).then(() => {
+        message.success('提案提交成功')
+        navigate('/')
+      })
+    }
   }
 
   return (

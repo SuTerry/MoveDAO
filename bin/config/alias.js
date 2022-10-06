@@ -1,6 +1,7 @@
 const path = require('path')
 
 module.exports = {
+  '@api': path.resolve(__dirname, '../../src/api'), 
   '@css': path.resolve(__dirname, '../../src/assets/css'), 
   '@views': path.resolve(__dirname, '../../src/views'), 
   '@components': path.resolve(__dirname, '../../src/components'), 

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useNavigate } from 'react-router-dom'
 
-import { Link } from '@mui/material'
+import { Link, Button } from '@mui/material'
 
 import { WalletButton } from '@components/WalletButton'
 
@@ -27,6 +27,16 @@ export default (): JSX.Element => {
           text="发起提案"
           onClick={() => navigate('/proposal')}
         />
+        <Button
+          variant="contained"
+          sx={{
+            width: 300,
+            height: 60,
+            marginTop: 3
+          }}
+          onClick={() => navigate('/list')}>
+          投票列表
+        </Button>
       </div>
       <div className="home_link">
         <Link href="#">关于</Link>
