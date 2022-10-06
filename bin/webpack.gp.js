@@ -10,7 +10,7 @@ module.exports = merge(base, {
   devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, '../docs'),
-    publicPath: '/docs'
+    publicPath: './'
   },
   plugins: [
     new MiniCssExtractPlugin({
