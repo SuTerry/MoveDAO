@@ -92,7 +92,7 @@ module.exports = {
     clean: true,
     filename: isLocal ? 'js/[name].js' : 'js/[name].[contenthash:8].js',
     chunkFilename: isLocal ? 'js/[name].js' : 'js/[name].[contenthash:8].js',
-    path: path.resolve(__dirname, '../docs'),
+    path: path.resolve(__dirname, '../dist'),
     publicPath: '/'
   },
   resolve: {
@@ -124,7 +124,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [{
         from: path.resolve(__dirname, '../static'),
-        to: path.resolve(__dirname, '../docs/static')
+        to: path.resolve(__dirname, '../dist/static')
       }],
     }),
     new webpack.DefinePlugin({
