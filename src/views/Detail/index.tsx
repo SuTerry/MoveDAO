@@ -6,19 +6,35 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 import dayjs from 'dayjs'
 
+import { WalletButton } from '@components/WalletButton'
+
 import message from '@components/Message'
 
 import { proposalsApi } from '@api/index'
 
-import { ProsposalResponse } from '@api/proposals'
+import { ProsposalResponse, VotesDetail } from '@api/proposals'
+
+import { useAppSelector } from '@store/index'
 
 import { truncateMiddle, percentage } from '@utils/index'
 
 import './index.less'
 
+enum ShouldPass {
+  '支持'= 1,
+  '反对' = 2,
+  '弃权' = 3,
+}
+
 export default (): JSX.Element => {
 
   const [proposals, setProposals] = useState<ProsposalResponse>()
+
+  const [voteDetail, setVoteDetail] = useState<VotesDetail[]>([])
+
+  const [voteDisabled, setVoteDisabled] = useState(true)
+
+  const { accountAddress } = useAppSelector(state => state.wallet)
 
   const [total, setTotal] = useState(0)
 
@@ -28,17 +44,22 @@ export default (): JSX.Element => {
 
   const getDetailData = async () => {
     try {
-      const res = await proposalsApi.getProsposal(id, handle)
-      setProposals(res)
+      const [prosposalRes, votesRes] = await Promise.all([proposalsApi.getProsposal(id, handle), proposalsApi.getTableVotes(id)])
+      setProposals(prosposalRes)
+      setVoteDetail(votesRes)
+      setVoteDisabled(!accountAddress || !!votesRes.find(vote => vote.proposer === accountAddress))
     } catch (error) {
 
     }
   }
 
   const handleVote = (type: number): void => {
+    setVoteDisabled(true)
     proposalsApi.vote([parseInt(id), 1, type]).then(() => {
       message.success('投票成功')
       getDetailData()
+    }).catch(() => {
+      setVoteDisabled(false)
     })
   }
 
@@ -127,47 +148,52 @@ export default (): JSX.Element => {
               <div className="d_c_b_left">
                 <div className="d_c_b_l_title">投票详情</div>
                 <ul className="d_c_b_l_content">
-                  <li></li>
+                  {
+                    voteDetail.map((item, index) => {
+                      return (
+                        <li className="d_c_b_l_c_li" key={index}>
+                          <span className="d_c_b_l_c_l_address">{truncateMiddle(item.proposer, 3, 3)}</span>
+                          <span className="d_c_b_l_c_l_pass">{ShouldPass[item.should_pass]}</span>
+                          <span className="d_c_b_l_c_l_num">1积分</span>
+                        </li>
+                      )
+                    })
+                  }
                 </ul>
-                <div className="d_c_b_l_button">
-                  <Button
-                    variant="contained"
-                    disabled
-                    sx={{
-                      width: 100,
-                    }}
-                    onClick={() => navigate('/list')}>
-                    显示更多
-                  </Button>
-                </div>
               </div>
               <div className="d_c_b_right">
                 <div className="d_c_b_r_title">投票</div>
                 <div className="d_c_b_r_bottons">
-                  <Button
+                  <WalletButton
                     variant="contained"
+                    disabled={voteDisabled}
+                    text="支持"
                     sx={{
                       width: 100,
                     }}
-                    onClick={() => handleVote(1)}>
+                    onClick={() => handleVote(ShouldPass['支持'])}>
                     支持
-                  </Button>
-                  <Button
+                  </WalletButton>
+                  <WalletButton
                     variant="contained"
+                    disabled={voteDisabled}
+                    text="反对"
                     sx={{
                       width: 100,
                     }}
-                    onClick={() => handleVote(2)}>
+                    onClick={() => handleVote(ShouldPass['反对'])}>
                     反对
-                  </Button>
-                  <Button
+                  </WalletButton>
+                  <WalletButton
                     variant="contained"
+                    disabled={voteDisabled}
                     sx={{
                       width: 100,
                     }}
-                    onClick={() => handleVote(3)}>
+                    text="弃权"
+                    onClick={() => handleVote(ShouldPass['弃权'])}>
                     弃权
-                  </Button>
+                  </WalletButton>
                 </div>
               </div>
             </div>

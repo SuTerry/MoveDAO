@@ -7,4 +7,4 @@ export const NODE_URL =
         : (env === 'dev' ? 'https://fullnode.devnet.aptoslabs.com'
           : 'https://fullnode.devnet.aptoslabs.com')))
 
-export const PROPOSALS_ADDRESS = '0xcbd71dedc1dee262258e1ab47ee97b6bbcea778868502e71072e876db4b4ad5b'
+export const PROPOSALS_ADDRESS = '0xbe2101583256a60f3b4c722d0a73a0fa4f8449a61bb9806b74aa23b3e65dee5b'

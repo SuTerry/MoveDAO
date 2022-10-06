@@ -15,8 +15,8 @@ export default (): JSX.Element => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
+    dispatch(setWallet())
     if (isUpdatedVersion()) {
-      dispatch(setWallet())
       window.aptos?.on?.('accountChanged', () => {
         dispatch(setWallet())
       })

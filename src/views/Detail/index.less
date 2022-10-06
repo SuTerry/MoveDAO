@@ -1,5 +1,5 @@
 .detail {
-  padding: 20px;
+  padding: 20px 20px 0;
 
   >.detail_back {
     margin-bottom: 30px;
@@ -138,12 +138,14 @@
         width: 300px;
         > .d_c_b_l_title {}
         > .d_c_b_l_content {
-          max-height: 300px;
+          max-height: 290px;
           overflow-y: auto;
           margin-bottom: 20px;
-        }
-        > .d_c_b_l_button {
-          text-align: center;
+          > .d_c_b_l_c_li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+          }
         }
       }
       >.d_c_b_right {
@@ -151,7 +153,7 @@
           margin-bottom: 10px;
         }
         > .d_c_b_r_bottons {
-          > button {
+          > span, button {
             margin-right: 10px;
             &:last-child {
               margin-right: 0;

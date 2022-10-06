@@ -10,6 +10,7 @@ const MAX_LENGTH = 10000
 
 interface useDescribeInputReturn {
   describe: string
+  describeHtml: string
   validateDescribeEditor: () => Promise<boolean>
   renderDescribeEditor: () => JSX.Element
 }
@@ -21,7 +22,7 @@ export type DescribeChangeParams = {
 
 const useDescribeInput = (): useDescribeInputReturn => {
   const [describe, setDescribe] = useState('')
-  const [, setDescribeHTML] = useState('')
+  const [describeHtml, setDescribeHTML] = useState('')
   const [describeIsValid, setDescribeIsValid] = useState(false)
   const [open, setOpen] = React.useState(false)
 
@@ -86,7 +87,7 @@ const useDescribeInput = (): useDescribeInputReturn => {
     )
   }
 
-  return { describe, validateDescribeEditor, renderDescribeEditor }
+  return { describe, describeHtml, validateDescribeEditor, renderDescribeEditor }
 }
 
 export default useDescribeInput

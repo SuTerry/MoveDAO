@@ -10,7 +10,7 @@
     "build:sit": "cross-env NODE_ENV=sit  webpack --config bin/webpack.pro.js",
     "build:pre": "cross-env NODE_ENV=pre  webpack --config bin/webpack.pro.js",
     "build:pro": "cross-env NODE_ENV=pro  webpack --config bin/webpack.pro.js",
-    "build:gb": "cross-env NODE_ENV=dev  webpack --config bin/webpack.gp.js",
+    "build:gp": "cross-env NODE_ENV=dev  webpack --config bin/webpack.gp.js",
     "serve": "vite preview",
     "test": "eslint src --ext .js,.ts,.tsx",
     "postinstall": "chmod ug+x .husky/* && chmod ug+x .git/hooks/* && husky install",

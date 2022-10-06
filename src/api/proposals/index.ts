@@ -28,6 +28,20 @@ export interface ProsposalResponse {
   abstained_votes: string
 }
 
+interface VotesDetailResponse {
+  records: {
+    data: {
+      key: string
+      value: VotesDetail[]
+    }[]
+  }
+}
+
+export interface VotesDetail {
+  proposer: string
+  should_pass: number
+}
+
 class Proposals extends Abstract {
 
   address = PROPOSALS_ADDRESS
@@ -54,7 +68,7 @@ class Proposals extends Abstract {
       const accountResourcesResult = await this.getAccountResources()
       const votingForum = accountResourcesResult.find(resource => resource.type === `${this.address}::proposal::VotingForum`)
       if (!votingForum || !votingForum.data) return result
-      const votingForumData: votingForumData = votingForum.data as votingForumData
+      const votingForumData = votingForum.data as votingForumData
 
       const nextProposalId = parseInt(votingForumData.next_proposal_id)
       const handle = votingForumData.proposals.handle
@@ -89,6 +103,20 @@ class Proposals extends Abstract {
       return this.waitForTransaction(hash)
     } catch (error) {
       throw new Error(error as string)
+    }
+  }
+
+  async getTableVotes(id: string): Promise<VotesDetail[]> {
+    const result: VotesDetail[] = []
+    try {
+      const accountResourcesResult = await this.getAccountResources()
+      const votingDetail = accountResourcesResult.find(resource => resource.type === `${this.address}::proposal::VotingDetail`)
+      if (!votingDetail || !votingDetail.data) return result
+      const VotingDetailData = (votingDetail.data as VotesDetailResponse).records.data.find(item => item.key === id)
+      if (!VotingDetailData || !VotingDetailData.value) return result
+      return result.concat(VotingDetailData.value)
+    } catch (error) {
+      return result
     }
   }
 }

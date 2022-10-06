@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 
@@ -18,9 +18,11 @@ export default (): JSX.Element => {
 
   const navigate = useNavigate()
 
+  const [submitDetail, setSubmitDetail] = useState(false)
+
   const { title, validateTitleInput, renderTitleTextField } = useTitleInput()
 
-  const { describe, validateDescribeEditor, renderDescribeEditor } = useDescribeInput()
+  const { describe, describeHtml, validateDescribeEditor, renderDescribeEditor } = useDescribeInput()
 
   const { startDate, endDate, validateDatePicker, renderDatePicker } = useDatePicker()
 
@@ -32,9 +34,12 @@ export default (): JSX.Element => {
     const validDate = await validateDatePicker()
 
     if (validTitle && validDescribe && validDate) {
-      proposalsApi.createProposal([title, describe, startDate!.valueOf(), endDate!.valueOf()]).then(() => {
+      setSubmitDetail(true)
+      proposalsApi.createProposal([title, describeHtml, describe, startDate!.valueOf(), endDate!.valueOf()]).then(() => {
         message.success('提案提交成功')
         navigate('/')
+      }).catch(() => {
+        setSubmitDetail(false)
       })
     }
   }
@@ -72,6 +77,7 @@ export default (): JSX.Element => {
                 width: '100%',
                 height: 50
               }}
+              disabled={submitDetail}
               onClick={handleSubmit}>
               提交
             </Button>
